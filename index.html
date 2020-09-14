@@ -239,6 +239,12 @@
                         </div>
                     </div>
                 </div>
+                <section class="row my-5">
+                    <div class="col-12">
+                        <div id="chartContainer" style="height: 300px; max-width: 920px; margin: 0px auto;">
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -250,41 +256,73 @@
     <script src="assets/js/bootstrap.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar, #content').toggleClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
     <!--circle chart-->
     <script src="assets/js/circles.min.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
-        var colors = [
-            ['#dfe3e7', '#00A5FF'], ['#dfe3e7', '#00A5FF'], ['#dfe3e7', '#00A5FF'], ['#dfe3e7', '#2ab7ee'], ['#dfe3e7', '#00719d']
-        ], circles = [];
-        for (var i = 1; i <= 3; i++) {
-            var child = document.getElementById('circles-' + i),
-                percentage = 50 + (i * 30);
+        window.onload = function () {
+            var chart = new CanvasJS.Chart("chartContainer",
+                {
+                    title: {
+                        text: ""
 
-            circles.push(Circles.create({
-                id: child.id,
-                value: percentage,
-                radius: 50,
-                width: 16,
-                borderRadius: 10,
-                colors: colors[i - 1],
-                textClass: 'circles-text',
-                styleText: true
-            }));
+                    },
+                    data: [{
+                        type: "column",
+                        dataPoints: [
+                            { x: 10, y: 171, label: "Jan" },
+                            { x: 20, y: 155, label: "Feb" },
+                            { x: 30, y: 150, label: "Mar" },
+                            { x: 40, y: 165, label: "Apr" },
+                            { x: 50, y: 195, label: "May" },
+                            { x: 60, y: 168, label: "Jun" },
+                            { x: 70, y: 128, label: "July" },
+                            { x: 80, y: 134, label: "Aug" },
+                            { x: 90, y: 114, label: "Sep" }
+                        ]
+                    },
+                    {
+                        type: "column",
+                        dataPoints: [
+                            { x: 10, y: 20 },
+                            { x: 20, y: 50 },
+                            { x: 30, y: 65 },
+                            { x: 40, y: 105 },
+                            { x: 50, y: 105 },
+                            { x: 60, y: 108 },
+                            { x: 70, y: 108 },
+                            { x: 80, y: 104 },
+                            { x: 90, y: 104 }
+                        ]
+                    },
+                    {
+                        type: "line",
+                        dataPoints: [
+                            { x: 30, y: 00 },
+                            { x: 35, y: 00 }
+                        ]
+                    },
+                    {
+                        type: "spline",
+                        dataPoints: [
+                            { x: 5, y: 171 },
+                            { x: 15, y: 105 },
+                            { x: 25, y: 90 },
+                            { x: 45, y: 65 },
+                            { x: 55, y: 75 },
+                            { x: 65, y: 68 },
+                            { x: 75, y: 28 },
+                            { x: 85, y: 34 },
+                            { x: 95, y: 84 }
+                        ]
+                    }
+                    ]
+                });
+
+            chart.render();
         }
     </script>
+    <script type="text/javascript" src="assets/js/canvasjs.min.js"></script>
 </body>
 
 </html>
