@@ -1,0 +1,385 @@
+@font-face {
+    font-family: 'Kollektif Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Kollektif Regular'), url('../fonts/Kollektif.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Kollektif Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Kollektif Italic'), url('../fonts/Kollektif-Italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Kollektif Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Kollektif Bold'), url('../fonts/Kollektif-Bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Kollektif Bold Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Kollektif Bold Italic'), url('../fonts/Kollektif-BoldItalic.woff') format('woff');
+}
+
+/* BASE 
+	-------------------------------- */
+
+body {
+    font-family: 'Kollektif Regular';
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+::selection, ::moz-selection {}
+
+/* HEADER
+	-------------------------------- */
+
+nav {
+    background: #00A5FF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.site-header nav {
+    line-height: 86px;
+    font-size: 26px;
+}
+
+.site-header nav a {
+    color: #ffffff;
+}
+
+.sidebar-overlay {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background: #000;
+    z-index: 998;
+    transition: visibility 0 linear .4s, opacity .4s cubic-bezier(.4, 0, .2, 1);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    top: 84px;
+    left: 0px;
+}
+
+#sidebar {
+    width: 300px;
+    position: fixed;
+    top: 84px;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: #ffffff;
+    color: #000000;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    margin-left: -300px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    /* background: #6d7fcc; */
+}
+
+/* #sidebar ul.components {
+    padding: 20px 0;
+} */
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #000000;
+    background: #CCEBFD;
+    text-decoration: none;
+}
+
+#sidebar ul li.active>a, a[aria-expanded="true"] {
+    color: #000000;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    content: none;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 16px !important;
+    background: #ffffff;
+    color: #000000;
+}
+
+#homeSubmenu li:nth-child(2) {
+    background: #CCEBFD;
+}
+
+#homeSubmenu li:nth-child(2) a {
+    background: #CCEBFD;
+}
+
+.media-left, .media-right {
+    display: table-cell;
+}
+
+.mobile-nav {
+    height: 30px;
+    cursor: pointer;
+}
+
+.sidebar-overlay.opened {
+    display: block;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    z-index: 90;
+    height: 100%;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    z-index: 1040;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: calc(100% - 300px);
+    padding: 40px 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#content.active {
+    width: 100%;
+}
+
+.navbar-toggler {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.navbar-toggler {
+    background-image: url("../img/mobile-menu.svg");
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -270px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100% !important;
+    }
+    #content.active {
+        /* width: calc(100% - 320px); */
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+    .mobile-icon-h {
+        height: 50px;
+        width: 76%;
+    }
+    .mob-w100 {
+        width: 100%;
+    }
+    .img-responsive-menu {
+        height: 36px
+    }
+}
+
+@media (min-width: 1200px) {
+    .plmd-3 {
+        padding-left: 3.6rem;
+    }
+}
+
+@media (max-width: 891px) {
+    #content {
+        padding: 40px 20px;
+    }
+    #sidebar {
+        width: 270px;
+    }
+    #content {
+        width: calc(100% - 270px);
+    }
+    .mob-w100 {
+        width: 100%;
+    }
+    .mob-800 {
+        width: 80%;
+    }
+    h5.title-view {
+        font-size: 1rem;
+    }
+    .md-text-center {
+        text-align: center !important;
+    }
+    .mob-mx-auto {
+        margin-left: auto!important;
+        margin-right: auto!important;
+    }
+}
+
+.blue__secure--card {
+    border: 2px solid #00A5FF;
+    border-radius: 15px;
+}
+
+.blue__secure--card--shadow {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 2px 14px #00000017;
+    border-radius: 15px;
+    opacity: 1;
+}
+
+.card img {
+    height: 44px;
+}
+
+.card .card-text {
+    line-height: 44px;
+}
+
+.Optional-btn .btn img {
+    height: 18px;
+}
+
+.Optional-btn .btn .filter-btn {
+    height: 14px;
+}
+
+.blue-secure {
+    color: #00A5FF;
+}
+
+.btn-blue-secure-bg {
+    background: #00A5FF;
+    color: #ffffff;
+}
+
+.btn-other-blue-secure-bg {
+    background: #004164;
+    color: #ffffff;
+}
+
+/*================= site activity css =========================*/
+
+/*total sales circle chart css*/
+
+.total-sales {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+}
+
+.total-sales .chart {
+    width: 50%;
+}
+
+.total-sales .chart.circle-chart {
+    padding-right: 3%;
+}
+
+.total-sales .chart.total-revenue {
+    padding-left: 3%;
+}
+
+.total-sales .circle {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    position: relative;
+}
+
+.total-sales .circles-wrp {
+    margin-bottom: 6px;
+}
+
+.total-sales .circles-integer {
+    font-size: 20px;
+    font-family: 'Roboto';
+    display: block;
+    font-weight: 700;
+}
+
+.total-sales .border-right {
+    border-right: 1px solid #dfe3e7;
+}
+
+.total-sales .chart-title {
+    line-height: 1.1;
+    padding: 0 15px;
+    width: 99px;
+    margin: auto;
+    font-weight: 500;
+}
+
+.total-sales .circle .circles-text {
+    height: auto !important;
+}
+
+.total-sales .circles-integer:before {
+    content: "";
+    display: inline-block;
+    height: 19px;
+    vertical-align: middle;
+    background-size: 11px;
+}
